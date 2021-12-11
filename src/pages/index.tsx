@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Next.js Boilerplate</title>
+        <title>Coin Bot</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container>
