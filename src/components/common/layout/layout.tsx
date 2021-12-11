@@ -9,7 +9,7 @@ function Layout({ children }: IProps) {
   return (
     <div>
       <Header />
-      {children}
+      <main>{children}</main>
     </div>
   );
 }

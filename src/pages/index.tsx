@@ -3,6 +3,7 @@ import Layout from '@/components/common/layout';
 
 const H1 = styled.h1`
   color: red;
+  margin: 0;
 `;
 
 const Container = styled.div`
