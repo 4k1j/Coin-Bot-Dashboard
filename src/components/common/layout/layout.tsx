@@ -1,16 +1,20 @@
 import React from 'react';
 import Header from '@/components/common/header';
+import Container from '@mui/material/Container';
+import { styled } from '@mui/system';
 
 interface IProps {
   children: React.ReactNode;
 }
 
+const Main = styled('main')(({ theme }) => ({ marginTop: theme.header.height }));
+
 function Layout({ children }: IProps) {
   return (
-    <div>
+    <Container>
       <Header />
-      <main>{children}</main>
-    </div>
+      <Main>{children}</Main>
+    </Container>
   );
 }
 
