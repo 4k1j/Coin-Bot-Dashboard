@@ -1,5 +1,4 @@
-import Head from 'next/head';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import Layout from '@/components/common/layout';
 
 const H1 = styled.h1`
@@ -15,10 +14,6 @@ const Container = styled.div`
 export default function Home() {
   return (
     <Layout>
-      <Head>
-        <title>Coin Bot</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <Container>
         <H1>Hello World!</H1>
       </Container>
