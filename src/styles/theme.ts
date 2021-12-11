@@ -22,7 +22,7 @@ const theme = createTheme({
     },
   },
   header: {
-    height: 68.5,
+    height: 52.5,
   },
 });
 
