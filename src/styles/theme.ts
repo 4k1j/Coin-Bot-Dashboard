@@ -1,15 +1,21 @@
 import { createTheme } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
-declare module '@mui/system' {
+declare module '@mui/material/styles' {
   interface Theme {
     header: {
       height: number;
+    };
+    sidebar: {
+      width: number;
     };
   }
   // allow configuration using `createTheme`
   interface ThemeOptions {
     header?: {
       height?: number;
+    };
+    sidebar?: {
+      width?: number;
     };
   }
 }
@@ -23,6 +29,9 @@ const theme = createTheme({
   },
   header: {
     height: 52.5,
+  },
+  sidebar: {
+    width: 240,
   },
 });
 
