@@ -3,8 +3,7 @@ import Header from '@/components/common/header';
 import Sidebar from '@/components/common/sidebar';
 import Box from '@mui/material/Box';
 import { sidebarOpen } from '@/store/common';
-// import { styled } from '@mui/system';
-import { styled, useTheme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import { useRecoilValue } from 'recoil';
 
 interface IProps {

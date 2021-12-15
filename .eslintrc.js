@@ -7,7 +7,6 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:prettier/recommended',
-    'plugin:jest/recommended',
     'plugin:react/recommended',
     'next',
     'next/core-web-vitals',
@@ -19,5 +18,6 @@ module.exports = {
   },
   rules: {
     'no-useless-catch': 'off',
+    'react/display-name': 'off',
   },
 };
