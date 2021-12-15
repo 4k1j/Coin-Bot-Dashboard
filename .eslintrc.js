@@ -11,7 +11,7 @@ module.exports = {
     'next',
     'next/core-web-vitals',
   ],
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 12,
     sourceType: 'module',
@@ -19,5 +19,6 @@ module.exports = {
   rules: {
     'no-useless-catch': 'off',
     'react/display-name': 'off',
+    'no-unused-vars': ['warn', { vars: 'all' }],
   },
 };
