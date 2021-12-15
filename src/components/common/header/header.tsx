@@ -18,7 +18,7 @@ import Image from 'next/image';
 
 const pages = [];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-const drawerWidth = 240;
+
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
 }
@@ -31,8 +31,8 @@ const AppBar = styled(MuiAppBar, {
     duration: theme.transitions.duration.leavingScreen,
   }),
   ...(open && {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: `${drawerWidth}px`,
+    width: `calc(100% - ${theme.sidebar.width}px)`,
+    marginLeft: `${theme.sidebar.width}px`,
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
