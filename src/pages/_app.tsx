@@ -7,10 +7,11 @@ import { CacheProvider, EmotionCache } from '@emotion/react';
 import theme from '../styles/theme';
 import createEmotionCache from '../utils/createEmotionCache';
 import { RecoilRoot } from 'recoil';
+import { QueryClientProvider, QueryClient } from 'react-query';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
-
+const queryClient = new QueryClient();
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
@@ -18,18 +19,20 @@ interface MyAppProps extends AppProps {
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   return (
-    <CacheProvider value={emotionCache}>
-      <Head>
-        <title>Coin Bot</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-      </Head>
-      <RecoilRoot>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </RecoilRoot>
-    </CacheProvider>
+    <QueryClientProvider client={queryClient}>
+      <CacheProvider value={emotionCache}>
+        <Head>
+          <title>Coin Bot</title>
+          <link rel="icon" href="/favicon.ico" />
+          <meta name="viewport" content="initial-scale=1, width=device-width" />
+        </Head>
+        <RecoilRoot>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </RecoilRoot>
+      </CacheProvider>
+    </QueryClientProvider>
   );
 }
