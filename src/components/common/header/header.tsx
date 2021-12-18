@@ -15,8 +15,9 @@ import MenuItem from '@mui/material/MenuItem';
 import { useRecoilState } from 'recoil';
 import { sidebarOpen } from '@/store/common';
 import Image from 'next/image';
+import { useCurrentUser } from '@/hooks/user';
 
-const pages = [];
+const pages = ['login', 'sign up'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 interface AppBarProps extends MuiAppBarProps {
@@ -40,9 +41,8 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-function Header() {
+function UserIcon() {
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-  const [open, setOpen] = useRecoilState<boolean>(sidebarOpen);
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -51,6 +51,55 @@ function Header() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  return (
+    <Box sx={{ flexGrow: 0 }}>
+      <Tooltip title="Open settings">
+        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+          <Avatar
+            alt="Remy Sharp"
+            src="/static/images/avatar/2.jpg"
+            sx={{ width: 36, height: 36 }}
+          />
+        </IconButton>
+      </Tooltip>
+      <Menu
+        sx={{ mt: '45px' }}
+        id="menu-appbar"
+        anchorEl={anchorElUser}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+        keepMounted
+        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+        open={Boolean(anchorElUser)}
+        onClose={handleCloseUserMenu}
+      >
+        {settings.map(setting => (
+          <MenuItem key={setting}>
+            <Typography textAlign="center">{setting}</Typography>
+          </MenuItem>
+        ))}
+      </Menu>
+    </Box>
+  );
+}
+
+function TabList() {
+  return (
+    <Box sx={{ flexGrow: 1, display: 'flex' }}>
+      {pages.map(page => (
+        <Button key={page} sx={{ my: 1, color: 'white', display: 'block' }}>
+          {page}
+        </Button>
+      ))}
+    </Box>
+  );
+}
+
+function Header() {
+  const [open, setOpen] = useRecoilState<boolean>(sidebarOpen);
+
+  const { data } = useCurrentUser();
+  const loggedIn = !!data?.id;
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -67,48 +116,13 @@ function Header() {
             edge="start"
             sx={{ mr: 2, ...(open && { display: 'none' }) }}
           >
-            {' '}
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div" sx={{ mr: 2, display: 'flex' }}>
             <Image src="/favicon.ico" alt="logo" width={36} height={36} />
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: 'flex' }}>
-            {pages.map(page => (
-              <Button key={page} sx={{ my: 1, color: 'white', display: 'block' }}>
-                {page}
-              </Button>
-            ))}
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar
-                  alt="Remy Sharp"
-                  src="/static/images/avatar/2.jpg"
-                  sx={{ width: 36, height: 36 }}
-                />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-              keepMounted
-              transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map(setting => (
-                <MenuItem key={setting}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+          {loggedIn ? <UserIcon /> : <TabList />}
         </Toolbar>
       </Container>
     </AppBar>

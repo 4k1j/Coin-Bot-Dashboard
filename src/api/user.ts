@@ -5,9 +5,5 @@ const USER_PATH = {
 };
 
 export const userAPI = {
-  getCurrentUser: async () => {
-    const res = await request.get(USER_PATH.CURRENT);
-
-    return res;
-  },
+  getCurrentUser: () => request.get(USER_PATH.CURRENT).then(({ data }) => data),
 };
