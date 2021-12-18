@@ -53,7 +53,7 @@ function UserIcon() {
   };
 
   return (
-    <Box sx={{ flexGrow: 0 }}>
+    <Box>
       <Tooltip title="Open settings">
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
           <Avatar
@@ -85,7 +85,7 @@ function UserIcon() {
 
 function TabList() {
   return (
-    <Box sx={{ flexGrow: 1, display: 'flex' }}>
+    <Box sx={{ display: 'flex' }}>
       {pages.map(page => (
         <Button key={page} sx={{ my: 1, color: 'white', display: 'block' }}>
           {page}
@@ -101,26 +101,32 @@ function Header() {
   const { data } = useCurrentUser();
   const loggedIn = !!data?.id;
 
-  const handleDrawerOpen = () => {
+  const handleSidebarOpen = () => {
     setOpen(true);
   };
 
   return (
     <AppBar position="fixed" open={open}>
       <Container maxWidth={false}>
-        <Toolbar variant="dense" disableGutters>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{ mr: 2, ...(open && { display: 'none' }) }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div" sx={{ mr: 2, display: 'flex' }}>
-            <Image src="/favicon.ico" alt="logo" width={36} height={36} />
-          </Typography>
+        <Toolbar
+          variant="dense"
+          disableGutters
+          sx={{ display: 'flex', justifyContent: 'space-between' }}
+        >
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <IconButton
+              color="inherit"
+              aria-label="open Sidebar"
+              onClick={handleSidebarOpen}
+              edge="start"
+              sx={{ mr: 2, ...(open && { display: 'none' }) }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" noWrap component="div" sx={{ mr: 2, display: 'flex' }}>
+              <Image src="/favicon.ico" alt="logo" width={36} height={36} />
+            </Typography>
+          </Box>
 
           {loggedIn ? <UserIcon /> : <TabList />}
         </Toolbar>
