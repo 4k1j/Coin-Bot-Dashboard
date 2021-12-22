@@ -14,7 +14,7 @@ export interface IBotSummary {
 }
 
 interface IMyBotListResponse {
-  botList: IBotSummary[];
+  myBotList: IBotSummary[];
 }
 
 // TODO: userId를 기반으로 해당하는 user의 coin bot 정보를 요청해야 함.
