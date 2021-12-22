@@ -44,8 +44,8 @@ const AppBar = styled(MuiAppBar, {
 function UserIcon() {
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
+  const handleOpenUserMenu = (e: React.MouseEvent<HTMLElement>) => {
+    setAnchorElUser(e.currentTarget);
   };
 
   const handleCloseUserMenu = () => {
