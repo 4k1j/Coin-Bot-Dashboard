@@ -3,7 +3,7 @@
     {
       "id": "1",
       "botName": "coin-bot-1",
-      "algorithmName": "algorithm1",
+      "algorithm": "algorithm1",
       "earningRate": "10",
       "market": "bit-coin",
       "startTime": "2021-12-27 04:11:51",
@@ -12,7 +12,7 @@
     {
       "id": "2",
       "botName": "coin-bot-2",
-      "algorithmName": "algorithm2",
+      "algorithm": "algorithm2",
       "earningRate": "10",
       "market": "bit-coin",
       "startTime": "2021-12-30 22:12:09",
@@ -21,7 +21,7 @@
     {
       "id": "3",
       "botName": "coin-bot-3",
-      "algorithmName": "algorithm3",
+      "algorithm": "algorithm3",
       "earningRate": "10",
       "market": "bit-coin",
       "startTime": "2022-01-11 14:36:09",
@@ -30,7 +30,7 @@
     {
       "id": "4",
       "botName": "coin-bot-4",
-      "algorithmName": "algorithm4",
+      "algorithm": "algorithm4",
       "earningRate": "10",
       "market": "bit-coin",
       "startTime": "2021-12-25 10:21:19",
