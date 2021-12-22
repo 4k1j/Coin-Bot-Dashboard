@@ -6,5 +6,5 @@ const BOT_PATH = {
 
 // preparing / running / trading / paused / error / terminating
 export const botAPI = {
-  getCoinBotList: () => request.get(BOT_PATH.SUMMARY).then(({ data }) => data),
+  getMyBotList: () => request.get(BOT_PATH.SUMMARY).then(({ data }) => data),
 };
