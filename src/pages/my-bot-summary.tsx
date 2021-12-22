@@ -1,10 +1,10 @@
 import Layout from '@/components/common/layout';
-import Typography from '@mui/material/Typography';
+import BotList from '@/components/my-bot-summary/bot-list';
 
 export default function MyBotSummary() {
   return (
     <Layout>
-      <Typography variant="h3">Bot List</Typography>
+      <BotList />
     </Layout>
   );
 }

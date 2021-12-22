@@ -20,13 +20,13 @@ import { useCurrentUser } from '@/hooks/user';
 const pages = ['login', 'sign up'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-interface AppBarProps extends MuiAppBarProps {
+interface IAppBarProps extends MuiAppBarProps {
   open?: boolean;
 }
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: prop => prop !== 'open',
-})<AppBarProps>(({ theme, open }) => ({
+})<IAppBarProps>(({ theme, open }) => ({
   transition: theme.transitions.create(['margin', 'width'], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,

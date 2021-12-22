@@ -3,7 +3,7 @@ import { botAPI } from '@/api/bot';
 import { AxiosError } from 'axios';
 import { useQuery, UseQueryResult } from 'react-query';
 
-interface MyBotListResponse {
+export interface IBotSummary {
   id: number;
   botName: string;
   algorithm: string;
@@ -13,5 +13,12 @@ interface MyBotListResponse {
   status: string;
 }
 
-export const useMyBotList = (): UseQueryResult<MyBotListResponse, AxiosError> =>
-  useQuery(BOT_KEYS.MY_BOT_LIST, botAPI.getMyBotList);
+interface IMyBotListResponse {
+  botList: IBotSummary[];
+}
+
+// TODO: userId를 기반으로 해당하는 user의 coin bot 정보를 요청해야 함.
+export const useMyBotList = (/* userId: number */): UseQueryResult<
+  IMyBotListResponse,
+  AxiosError
+> => useQuery(BOT_KEYS.MY_BOT_LIST, botAPI.getMyBotList, { initialData: { botList: [] } });
