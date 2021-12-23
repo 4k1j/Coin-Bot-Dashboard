@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { IBotSummary, useMyBotList } from '@/hooks/bot';
+import { useMyBotList } from '@/hooks/bot';
+import { IBotSummary } from '@/schema/bot';
 import Switch from '@mui/material/Switch';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -61,6 +62,7 @@ function BotList() {
 interface IBotSummaryProps {
   bot: IBotSummary;
 }
+
 function BotSummary({ bot }: IBotSummaryProps) {
   const [checked, setChecked] = useState<boolean>(false);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

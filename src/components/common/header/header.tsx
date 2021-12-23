@@ -1,4 +1,10 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useRecoilState } from 'recoil';
+import { sidebarOpen } from '@/store/common';
+import { useCurrentUser } from '@/hooks/user';
+import { styled } from '@mui/material/styles';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -7,15 +13,11 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import { styled } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { useRecoilState } from 'recoil';
-import { sidebarOpen } from '@/store/common';
-import Image from 'next/image';
-import { useCurrentUser } from '@/hooks/user';
+import { ICurrentUser } from '@/schema/user';
 
 const pages = ['login', 'sign up'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -41,9 +43,14 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-function UserIcon() {
+interface IUserIconProps {
+  user: ICurrentUser;
+}
+
+function UserIcon({ user: { nickname = 'kwon', image } }: IUserIconProps) {
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
+  console.log(nickname);
   const handleOpenUserMenu = (e: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(e.currentTarget);
   };
@@ -56,11 +63,7 @@ function UserIcon() {
     <Box>
       <Tooltip title="Open settings">
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <Avatar
-            alt="Remy Sharp"
-            src="/static/images/avatar/2.jpg"
-            sx={{ width: 36, height: 36 }}
-          />
+          <Avatar alt={nickname} src={image} sx={{ width: 36, height: 36 }} />
         </IconButton>
       </Tooltip>
       <Menu
@@ -98,8 +101,8 @@ function TabList() {
 function Header() {
   const [open, setOpen] = useRecoilState<boolean>(sidebarOpen);
 
-  const { data } = useCurrentUser();
-  const loggedIn = !!data?.id;
+  const { data: user } = useCurrentUser();
+  const loggedIn = !!user?.id;
 
   const handleSidebarOpen = () => {
     setOpen(true);
@@ -123,12 +126,19 @@ function Header() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" noWrap component="div" sx={{ mr: 2, display: 'flex' }}>
-              <Image src="/favicon.ico" alt="logo" width={36} height={36} />
-            </Typography>
+            <Link href={'/'} passHref>
+              <Typography
+                variant="h6"
+                noWrap
+                component="div"
+                sx={{ mr: 2, display: 'flex', cursor: 'pointer' }}
+              >
+                <Image src="/favicon.ico" alt="logo" width={36} height={36} />
+              </Typography>
+            </Link>
           </Box>
 
-          {loggedIn ? <UserIcon /> : <TabList />}
+          {loggedIn ? <UserIcon user={user} /> : <TabList />}
         </Toolbar>
       </Container>
     </AppBar>

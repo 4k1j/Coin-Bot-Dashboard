@@ -1,17 +1,8 @@
+import { IBotSummary } from '@/schema/bot';
 import { BOT_KEYS } from '@/consts/query-keys';
 import { botAPI } from '@/api/bot';
 import { AxiosError } from 'axios';
 import { useQuery, UseQueryResult } from 'react-query';
-
-export interface IBotSummary {
-  id: number;
-  name: string;
-  algorithm: string;
-  earningRate: number;
-  market: string;
-  startTime: string;
-  status: string;
-}
 
 interface IMyBotListResponse {
   myBotList: IBotSummary[];
