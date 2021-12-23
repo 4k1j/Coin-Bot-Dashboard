@@ -2,7 +2,7 @@
   "myBotList": [
     {
       "id": "1",
-      "botName": "coin-bot-1",
+      "name": "coin-bot-1",
       "algorithm": "algorithm1",
       "earningRate": "10",
       "market": "bit-coin",
@@ -11,7 +11,7 @@
     },
     {
       "id": "2",
-      "botName": "coin-bot-2",
+      "name": "coin-bot-2",
       "algorithm": "algorithm2",
       "earningRate": "10",
       "market": "bit-coin",
@@ -20,7 +20,7 @@
     },
     {
       "id": "3",
-      "botName": "coin-bot-3",
+      "name": "coin-bot-3",
       "algorithm": "algorithm3",
       "earningRate": "10",
       "market": "bit-coin",
@@ -29,7 +29,7 @@
     },
     {
       "id": "4",
-      "botName": "coin-bot-4",
+      "name": "coin-bot-4",
       "algorithm": "algorithm4",
       "earningRate": "10",
       "market": "bit-coin",

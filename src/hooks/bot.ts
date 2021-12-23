@@ -5,7 +5,7 @@ import { useQuery, UseQueryResult } from 'react-query';
 
 export interface IBotSummary {
   id: number;
-  botName: string;
+  name: string;
   algorithm: string;
   earningRate: number;
   market: string;
