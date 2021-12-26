@@ -21,6 +21,12 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }));
 
+const EarningRateSpan = styled('span', {
+  shouldForwardProp: prop => prop !== 'positive',
+})<{ positive?: boolean }>(({ positive }) => ({
+  color: positive ? 'red' : 'blue',
+}));
+
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:nth-of-type(odd)': {
     backgroundColor: theme.palette.action.hover,
@@ -69,6 +75,7 @@ function BotSummary({ bot }: IBotSummaryProps) {
     setChecked(e.target.checked);
   };
   const { name, algorithm, earningRate, market, startTime, status } = bot;
+  const positive = earningRate > 0;
 
   return (
     <StyledTableRow>
@@ -80,7 +87,11 @@ function BotSummary({ bot }: IBotSummaryProps) {
       <StyledTableCell align="center">{status}</StyledTableCell>
       <StyledTableCell align="center">{startTime}</StyledTableCell>
       <StyledTableCell align="center">{algorithm}</StyledTableCell>
-      <StyledTableCell align="center">{earningRate}</StyledTableCell>
+      <StyledTableCell align="center">
+        <EarningRateSpan positive={positive}>{`${
+          positive ? '+' : ''
+        }${earningRate}%`}</EarningRateSpan>
+      </StyledTableCell>
     </StyledTableRow>
   );
 }
