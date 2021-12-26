@@ -19,6 +19,15 @@ const EarningRateSpan = styled('span', {
   fontWeight: 500,
 }));
 
+const BotNameSpan = styled('span')(({ theme }) => ({
+  color: theme.palette.primary.main,
+  fontWeight: theme.typography.fontWeightBold,
+  cursor: 'pointer',
+  '&:hover': {
+    textDecoration: 'underline',
+  },
+}));
+
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:nth-of-type(odd)': {
     backgroundColor: theme.palette.action.hover,
@@ -56,7 +65,7 @@ function BotSummary({ bot }: IBotSummaryProps) {
         <Switch color="warning" checked={checked} onChange={handleChange} />
       </StyledTableCell>
       <StyledTableCell sx={{ pl: 0 }} align="center">
-        {name}
+        <BotNameSpan>{name}</BotNameSpan>
       </StyledTableCell>
       <StyledTableCell align="center">{market}</StyledTableCell>
       <StyledTableCell align="center">{status}</StyledTableCell>
