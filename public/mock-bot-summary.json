@@ -5,7 +5,8 @@
       "name": "coin-bot-1",
       "algorithm": "algorithm1",
       "earningRate": "10",
-      "market": "bit-coin",
+      "market": "KRW-BTC",
+      "koreanName": "비트코인",
       "startTime": "2021-12-20 04:11:51",
       "status": "running"
     },
@@ -14,8 +15,9 @@
       "name": "coin-bot-2",
       "algorithm": "algorithm2",
       "earningRate": "-12.8",
-      "market": "bit-coin",
-      "startTime": "2021-12-26 15:12:09",
+      "market": "KRW-BTC",
+      "koreanName": "비트코인",
+      "startTime": null,
       "status": "paused"
     },
     {
@@ -23,8 +25,9 @@
       "name": "coin-bot-3",
       "algorithm": "algorithm3",
       "earningRate": "26.4",
-      "market": "bit-coin",
-      "startTime": "2021-12-11 14:36:09",
+      "market": "KRW-BTC",
+      "koreanName": "비트코인",
+      "startTime": "2021-12-26 22:00:52",
       "status": "preparing"
     },
     {
@@ -32,8 +35,9 @@
       "name": "coin-bot-4",
       "algorithm": "algorithm4",
       "earningRate": "-6.1",
-      "market": "bit-coin",
-      "startTime": "2021-12-25 10:21:19",
+      "market": "KRW-BTC",
+      "koreanName": "비트코인",
+      "startTime": "2021-12-26 15:12:09",
       "status": "trading"
     }
   ]

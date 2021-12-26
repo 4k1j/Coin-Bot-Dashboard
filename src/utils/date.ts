@@ -3,7 +3,11 @@ import differenceInSeconds from 'date-fns/differenceInSeconds';
 const formatTime = (timeArr: number[]) =>
   timeArr.map(time => Math.floor(time).toString().padStart(2, '0')).join(':');
 
-export const beforeNow = (startTime: string) => {
+export const beforeNow = (startTime: string | null) => {
+  if (startTime === null) {
+    return '00:00';
+  }
+
   const diffSec = differenceInSeconds(new Date(), new Date(startTime));
   const diffHour = diffSec / (60 * 60);
   if (diffHour > 24) {

@@ -4,6 +4,6 @@ export interface IBotSummary {
   algorithm: string;
   earningRate: number;
   market: string;
-  startTime: string;
+  startTime: string | null;
   status: string;
 }

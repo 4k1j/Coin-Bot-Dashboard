@@ -7,7 +7,7 @@ const TimeSpan = styled('span')(({ theme }) => ({
 }));
 
 interface IRunningTimeProps {
-  startTime: string;
+  startTime: string | null;
 }
 
 const ONE_SEC = 1000;
