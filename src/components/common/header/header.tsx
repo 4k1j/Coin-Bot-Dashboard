@@ -50,7 +50,6 @@ interface IUserIconProps {
 function UserIcon({ user: { nickname = 'kwon', image } }: IUserIconProps) {
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
-  console.log(nickname);
   const handleOpenUserMenu = (e: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(e.currentTarget);
   };

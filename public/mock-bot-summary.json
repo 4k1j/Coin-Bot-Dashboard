@@ -13,7 +13,7 @@
       "id": "2",
       "name": "coin-bot-2",
       "algorithm": "algorithm2",
-      "earningRate": "10",
+      "earningRate": "-12.8",
       "market": "bit-coin",
       "startTime": "2021-12-30 22:12:09",
       "status": "paused"
@@ -22,7 +22,7 @@
       "id": "3",
       "name": "coin-bot-3",
       "algorithm": "algorithm3",
-      "earningRate": "10",
+      "earningRate": "26.4",
       "market": "bit-coin",
       "startTime": "2022-01-11 14:36:09",
       "status": "preparing"
@@ -31,7 +31,7 @@
       "id": "4",
       "name": "coin-bot-4",
       "algorithm": "algorithm4",
-      "earningRate": "10",
+      "earningRate": "-6.1",
       "market": "bit-coin",
       "startTime": "2021-12-25 10:21:19",
       "status": "trading"
