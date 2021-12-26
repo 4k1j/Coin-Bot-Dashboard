@@ -89,8 +89,8 @@ function BotSummary({ bot }: IBotSummaryProps) {
 
   return (
     <StyledTableRow>
-      <StyledTableCell size="small">
-        <Switch sx={{ width: '100%' }} color="warning" checked={checked} onChange={handleChange} />
+      <StyledTableCell size="small" sx={{ width: '80px', pr: 0 }}>
+        <Switch color="warning" checked={checked} onChange={handleChange} />
       </StyledTableCell>
       <StyledTableCell sx={{ pl: 0 }} align="center">
         {name}
