@@ -25,6 +25,7 @@ const EarningRateSpan = styled('span', {
   shouldForwardProp: prop => prop !== 'positive',
 })<{ positive?: boolean }>(({ positive }) => ({
   color: positive ? 'red' : 'blue',
+  fontWeight: 500,
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
@@ -69,20 +70,31 @@ interface IBotSummaryProps {
   bot: IBotSummary;
 }
 
+const ON_OFF_STATUS = {
+  running: true,
+  preparing: true,
+  trading: true,
+  paused: false,
+  error: false,
+  terminating: false,
+};
+
 function BotSummary({ bot }: IBotSummaryProps) {
-  const [checked, setChecked] = useState<boolean>(false);
+  const { name, algorithm, earningRate, market, startTime, status } = bot;
+  const positive = earningRate > 0;
+  const [checked, setChecked] = useState<boolean>(ON_OFF_STATUS[status]);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked);
   };
-  const { name, algorithm, earningRate, market, startTime, status } = bot;
-  const positive = earningRate > 0;
 
   return (
     <StyledTableRow>
-      <StyledTableCell component="th" scope="row">
-        <Switch color="warning" checked={checked} onChange={handleChange} />
+      <StyledTableCell size="small">
+        <Switch sx={{ width: '100%' }} color="warning" checked={checked} onChange={handleChange} />
       </StyledTableCell>
-      <StyledTableCell align="center">{name}</StyledTableCell>
+      <StyledTableCell sx={{ pl: 0 }} align="center">
+        {name}
+      </StyledTableCell>
       <StyledTableCell align="center">{market}</StyledTableCell>
       <StyledTableCell align="center">{status}</StyledTableCell>
       <StyledTableCell align="center">{startTime}</StyledTableCell>
