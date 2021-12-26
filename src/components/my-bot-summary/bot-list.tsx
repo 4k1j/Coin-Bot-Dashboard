@@ -10,6 +10,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { beforeNow } from '@/utils/date';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -97,7 +98,7 @@ function BotSummary({ bot }: IBotSummaryProps) {
       </StyledTableCell>
       <StyledTableCell align="center">{market}</StyledTableCell>
       <StyledTableCell align="center">{status}</StyledTableCell>
-      <StyledTableCell align="center">{startTime}</StyledTableCell>
+      <StyledTableCell align="center">{beforeNow(startTime)}</StyledTableCell>
       <StyledTableCell align="center">{algorithm}</StyledTableCell>
       <StyledTableCell align="center">
         <EarningRateSpan positive={positive}>{`${
