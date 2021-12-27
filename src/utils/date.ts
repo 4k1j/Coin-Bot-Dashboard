@@ -10,13 +10,13 @@ export const beforeNow = (startTime: string | null) => {
 
   const diffSec = differenceInSeconds(new Date(), new Date(startTime));
   const diffHour = diffSec / (60 * 60);
+
   if (diffHour > 24) {
     const day = Math.floor(diffHour / 24);
     return `${day}일`;
   }
-  const hour = diffHour % 24;
-  const min = (diffSec / 60) % 60;
-  const sec = diffSec % 60;
+
+  const [hour, min, sec] = [diffHour % 24, (diffSec / 60) % 60, diffSec % 60];
 
   return formatTime(hour < 1 ? [min, sec] : [hour, min, sec]);
 };
