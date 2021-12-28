@@ -1,5 +1,7 @@
 FROM node:16.13.1-alpine
 
+RUN apk update
+
 RUN mkdir -p /home/app
 WORKDIR /home/app
 
