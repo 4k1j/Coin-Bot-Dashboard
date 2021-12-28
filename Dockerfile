@@ -5,13 +5,13 @@ WORKDIR /home/app
 
 ENV NODE_ENV=production
 
-# 앱 소스 추가
 COPY . /home/app/
 
 # 노출 포트 지정
 EXPOSE 3000
 
-RUN npm install && npm run build
+RUN npm install
+RUN npm run build
 # 프로덕션을 위한 코드를 빌드하는 경우
 # RUN npm ci --only=production
 
