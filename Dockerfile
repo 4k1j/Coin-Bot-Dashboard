@@ -1,4 +1,4 @@
-FROM node:16.13.1
+FROM node:16.13.1-alpine
 
 RUN mkdir -p /home/app
 WORKDIR /home/app
@@ -10,8 +10,7 @@ COPY . /home/app/
 # 노출 포트 지정
 EXPOSE 3000
 
-RUN npm install
-RUN npm run build
+RUN npm install && npm run build
 # 프로덕션을 위한 코드를 빌드하는 경우
 # RUN npm ci --only=production
 
