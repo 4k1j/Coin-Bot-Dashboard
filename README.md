@@ -1,2 +1,2 @@
-# Coin-Bot-Dashborad
+# Coin-Bot-Dashboard
 대쉬보드
