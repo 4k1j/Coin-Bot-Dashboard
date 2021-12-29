@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material/styles';
-import { red } from '@mui/material/colors';
+import { lightGreen, lime, blue, pink, purple, red } from '@mui/material/colors';
 declare module '@mui/material/styles' {
   interface Theme {
     header: {
@@ -7,6 +7,14 @@ declare module '@mui/material/styles' {
     };
     sidebar: {
       width: number;
+    };
+    status: {
+      preparing: string;
+      running: string;
+      trading: string;
+      paused: string;
+      error: string;
+      terminating: string;
     };
   }
   // allow configuration using `createTheme`
@@ -16,6 +24,14 @@ declare module '@mui/material/styles' {
     };
     sidebar?: {
       width?: number;
+    };
+    status?: {
+      preparing: string;
+      running: string;
+      trading: string;
+      paused: string;
+      error: string;
+      terminating: string;
     };
   }
 }
@@ -32,6 +48,14 @@ const theme = createTheme({
   },
   sidebar: {
     width: 240,
+  },
+  status: {
+    preparing: lime[500],
+    running: blue[800],
+    trading: lightGreen[500],
+    paused: purple[800],
+    error: red[900],
+    terminating: pink[900],
   },
 });
 
