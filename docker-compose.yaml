@@ -1,0 +1,31 @@
+# docker-compose.yml
+
+version: '3'
+
+services:
+  coin-bot: # 서비스명
+    build:
+      context: ./
+      dockerfile: ./config/coin-bot.dockerfile
+    container_name: coin-bot-next
+    image: coin-bot:0.1 # 이미지, 태그
+    expose:
+      - 3000
+    ports:
+      - '3000:3000'
+    networks:
+      - coin-bot-net
+  nginx:
+    build:
+      context: ./config
+      dockerfile: ./nginx.dockerfile
+    container_name: nginx
+    image: cb-nginx
+    ports:
+      - '80:80'
+      - '443:443'
+    networks:
+      - coin-bot-net
+
+networks:
+  coin-bot-net:
