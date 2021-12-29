@@ -28,6 +28,13 @@ const BotNameSpan = styled('span')(({ theme }) => ({
   },
 }));
 
+const MarketSpan = styled('span')(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  fontSize: 13,
+  margin: 0,
+}));
+
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:nth-of-type(odd)': {
     backgroundColor: theme.palette.action.hover,
@@ -52,7 +59,7 @@ interface IBotSummaryProps {
 }
 
 function BotSummary({ bot }: IBotSummaryProps) {
-  const { name, algorithm, earningRate, market, startTime, status } = bot;
+  const { name, algorithm, earningRate, market, koreanName, startTime, status } = bot;
   const positive = earningRate > 0;
   const [checked, setChecked] = useState<boolean>(ON_OFF_STATUS[status]);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,7 +74,10 @@ function BotSummary({ bot }: IBotSummaryProps) {
       <StyledTableCell sx={{ pl: 0 }} align="center">
         <BotNameSpan>{name}</BotNameSpan>
       </StyledTableCell>
-      <StyledTableCell align="center">{market}</StyledTableCell>
+      <StyledTableCell align="center">
+        <MarketSpan>{koreanName}</MarketSpan>
+        <MarketSpan sx={{ fontSize: 10 }}>{`(${market})`}</MarketSpan>
+      </StyledTableCell>
       <StyledTableCell align="center">{status}</StyledTableCell>
       <StyledTableCell align="center">
         <RunningTime startTime={startTime} />
