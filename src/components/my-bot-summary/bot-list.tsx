@@ -19,7 +19,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }));
 
-const TITLES = ['봇', '마켓', '상태', '실행 시간', '알고리즘', '수익률'];
+const TITLES = ['봇', '마켓', '상태', '실행 시간', '알고리즘', '수익률', 'Actions'];
 
 function BotList() {
   const {
