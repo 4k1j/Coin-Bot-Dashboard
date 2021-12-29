@@ -6,6 +6,7 @@ import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import RunningTime from './running-time';
 import ActionButtons from './action-buttons';
+import Status from './status';
 
 const StyledTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.body}`]: {
@@ -79,7 +80,9 @@ function BotSummary({ bot }: IBotSummaryProps) {
         <MarketSpan>{koreanName}</MarketSpan>
         <MarketSpan sx={{ fontSize: 10 }}>{`(${market})`}</MarketSpan>
       </StyledTableCell>
-      <StyledTableCell align="center">{status}</StyledTableCell>
+      <StyledTableCell align="center">
+        <Status status={status} />
+      </StyledTableCell>
       <StyledTableCell align="center">
         <RunningTime startTime={startTime} />
       </StyledTableCell>
