@@ -1,4 +1,3 @@
-import React from 'react';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import PlayArrowTwoToneIcon from '@mui/icons-material/PlayArrowTwoTone';

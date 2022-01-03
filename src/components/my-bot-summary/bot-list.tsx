@@ -1,4 +1,3 @@
-import React from 'react';
 import { useMyBotList } from '@/hooks/bot';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';

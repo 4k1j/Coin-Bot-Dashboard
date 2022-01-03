@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import { styled, useTheme } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
