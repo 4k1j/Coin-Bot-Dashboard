@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { IBotSummary } from '@/schema/bot';
+import Link from 'next/link';
 import Switch from '@mui/material/Switch';
-import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
+import { styled } from '@mui/material/styles';
+import { useCurrentUser } from '@/hooks/user';
+import { IBotSummary } from '@/schema/bot';
 import RunningTime from './running-time';
 import ActionButtons from './action-buttons';
 import Status from './status';
@@ -61,12 +63,13 @@ interface IBotSummaryProps {
 }
 
 function BotSummary({ bot }: IBotSummaryProps) {
+  const { data: user } = useCurrentUser();
   const { name, algorithm, earningRate, market, koreanName, startTime, status } = bot;
-  const positive = earningRate > 0;
   const [checked, setChecked] = useState<boolean>(ON_OFF_STATUS[status]);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked);
   };
+  const positive = earningRate > 0;
 
   return (
     <StyledTableRow>
@@ -74,7 +77,9 @@ function BotSummary({ bot }: IBotSummaryProps) {
         <Switch color="warning" checked={checked} onChange={handleChange} />
       </StyledTableCell>
       <StyledTableCell sx={{ pl: 0 }} align="center">
-        <BotNameSpan>{name}</BotNameSpan>
+        <Link href={`/${user.nickname}/${encodeURIComponent(name)}`} passHref>
+          <BotNameSpan>{name}</BotNameSpan>
+        </Link>
       </StyledTableCell>
       <StyledTableCell align="center">
         <MarketSpan>{koreanName}</MarketSpan>
