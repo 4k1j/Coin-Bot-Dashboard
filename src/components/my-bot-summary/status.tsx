@@ -10,35 +10,35 @@ import Tooltip from '@mui/material/Tooltip';
 import { BOT_STATUS } from '@/consts';
 
 const STATUS_ICON_MAP = {
-  [BOT_STATUS.PREPARING.TITLE]: {
-    title: BOT_STATUS.PREPARING.TITLE,
-    color: BOT_STATUS.PREPARING.COLOR,
-    icon: <PendingOutlinedIcon htmlColor={BOT_STATUS.PREPARING.COLOR} />,
+  [BOT_STATUS.preparing.title]: {
+    title: BOT_STATUS.preparing.title,
+    color: BOT_STATUS.preparing.color,
+    icon: <PendingOutlinedIcon htmlColor={BOT_STATUS.preparing.color} />,
   },
-  [BOT_STATUS.RUNNING.TITLE]: {
-    title: BOT_STATUS.RUNNING.TITLE,
-    color: BOT_STATUS.RUNNING.COLOR,
-    icon: <RunCircleOutlinedIcon htmlColor={BOT_STATUS.RUNNING.COLOR} />,
+  [BOT_STATUS.running.title]: {
+    title: BOT_STATUS.running.title,
+    color: BOT_STATUS.running.color,
+    icon: <RunCircleOutlinedIcon htmlColor={BOT_STATUS.running.color} />,
   },
-  [BOT_STATUS.TRADING.TITLE]: {
-    title: BOT_STATUS.TRADING.TITLE,
-    color: BOT_STATUS.TRADING.COLOR,
-    icon: <CurrencyExchangeOutlinedIcon htmlColor={BOT_STATUS.TRADING.COLOR} />,
+  [BOT_STATUS.trading.title]: {
+    title: BOT_STATUS.trading.title,
+    color: BOT_STATUS.trading.color,
+    icon: <CurrencyExchangeOutlinedIcon htmlColor={BOT_STATUS.trading.color} />,
   },
-  [BOT_STATUS.PAUSED.TITLE]: {
-    title: BOT_STATUS.PAUSED.TITLE,
-    color: BOT_STATUS.PAUSED.COLOR,
-    icon: <PauseCircleOutlinedIcon htmlColor={BOT_STATUS.PAUSED.COLOR} />,
+  [BOT_STATUS.paused.title]: {
+    title: BOT_STATUS.paused.title,
+    color: BOT_STATUS.paused.color,
+    icon: <PauseCircleOutlinedIcon htmlColor={BOT_STATUS.paused.color} />,
   },
-  [BOT_STATUS.ERROR.TITLE]: {
-    title: BOT_STATUS.ERROR.TITLE,
-    color: BOT_STATUS.ERROR.COLOR,
-    icon: <ReportGmailerrorredOutlinedIcon htmlColor={BOT_STATUS.ERROR.COLOR} />,
+  [BOT_STATUS.error.title]: {
+    title: BOT_STATUS.error.title,
+    color: BOT_STATUS.error.color,
+    icon: <ReportGmailerrorredOutlinedIcon htmlColor={BOT_STATUS.error.color} />,
   },
-  [BOT_STATUS.TERMINATING.TITLE]: {
-    title: BOT_STATUS.TERMINATING.TITLE,
-    color: BOT_STATUS.TERMINATING.COLOR,
-    icon: <IndeterminateCheckBoxOutlinedIcon htmlColor={BOT_STATUS.TERMINATING.COLOR} />,
+  [BOT_STATUS.terminating.title]: {
+    title: BOT_STATUS.terminating.title,
+    color: BOT_STATUS.terminating.color,
+    icon: <IndeterminateCheckBoxOutlinedIcon htmlColor={BOT_STATUS.terminating.color} />,
   },
 };
 

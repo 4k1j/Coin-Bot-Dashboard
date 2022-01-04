@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
-import { Button, Menu, MenuItem, TableRow } from '@mui/material';
+import { Button, Menu, MenuItem, Typography, TableRow } from '@mui/material';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import { BOT_STATUS } from '@/consts';
 
@@ -44,10 +44,13 @@ function FilterRow() {
             'aria-labelledby': 'basic-button',
           }}
         >
-          {Object.keys(BOT_STATUS)}
-          <MenuItem onClick={handleClose}>Profile</MenuItem>
-          <MenuItem onClick={handleClose}>My account</MenuItem>
-          <MenuItem onClick={handleClose}>Logout</MenuItem>
+          {Object.keys(BOT_STATUS).map(status => {
+            return (
+              <MenuItem key={status} onClick={handleClose}>
+                <Typography color={BOT_STATUS[status].color}>{status}</Typography>
+              </MenuItem>
+            );
+          })}
         </Menu>
       </StyledTableCell>
       <StyledTableCell align="left" colSpan={4}>
