@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
-import { Button, Menu, MenuItem, Typography, TableRow } from '@mui/material';
+import { Button, Menu, MenuItem, Typography, TableRow, TextField } from '@mui/material';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import { BOT_STATUS } from '@/consts';
 
@@ -53,8 +53,8 @@ function FilterRow() {
           })}
         </Menu>
       </StyledTableCell>
-      <StyledTableCell align="left" colSpan={4}>
-        SEARCH
+      <StyledTableCell align="right" colSpan={4}>
+        <TextField label="bot name" id="outlined-size-small" size="small" sx={{ width: '50%' }} />
       </StyledTableCell>
     </TableRow>
   );
