@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     node: true,
     es2021: true,
+    'jest/globals': true,
   },
   extends: [
     'eslint:recommended',
@@ -20,5 +21,10 @@ module.exports = {
     'no-useless-catch': 'off',
     'react/display-name': 'off',
     'no-unused-vars': ['warn', { vars: 'all' }],
+  },
+  settings: {
+    jest: {
+      version: 27,
+    },
   },
 };
