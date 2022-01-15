@@ -36,6 +36,8 @@ services:
       - 8080
     volumes:
       - ./jenkins_home:/var/jenkins_home
+    networks:
+      - coin-bot-net
 
 networks:
   coin-bot-net:
