@@ -26,6 +26,16 @@ services:
       - '443:443'
     networks:
       - coin-bot-net
+  jenkins:
+    image: jenkins/jenkins:latest
+    container_name: jenkins
+    restart: always
+    ports:
+      - '8080:8080'
+    expose:
+      - 8080
+    volumes:
+      - ./jenkins_home:/var/jenkins_home
 
 networks:
   coin-bot-net:
