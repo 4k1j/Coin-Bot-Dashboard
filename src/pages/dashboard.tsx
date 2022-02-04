@@ -3,7 +3,7 @@ import { styled, useTheme } from '@mui/material/styles';
 import { Grid, Paper, Box } from '@mui/material';
 import AssetSection from '@/components/dashboard/asset-section';
 
-const Item = styled(Paper)(({ theme }) => ({
+const Section = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: 'center',
@@ -24,18 +24,18 @@ export default function Dashboard() {
       >
         <Grid container rowSpacing={2} columnSpacing={2} sx={{ height: '100%' }}>
           <Grid item xs={6}>
-            <Item>
+            <Section>
               <AssetSection />
-            </Item>
+            </Section>
           </Grid>
           <Grid item xs={6}>
-            <Item>2</Item>
+            <Section>2</Section>
           </Grid>
           <Grid item xs={6}>
-            <Item>3</Item>
+            <Section>3</Section>
           </Grid>
           <Grid item xs={6}>
-            <Item>4</Item>
+            <Section>4</Section>
           </Grid>
         </Grid>
       </Box>
